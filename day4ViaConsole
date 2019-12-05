@@ -1,0 +1,46 @@
+let count = 0;
+undefined
+let validNums = [];
+undefined
+for(let i = 372037; i <= 905157; i++){
+    const ones = i % 10;
+    const tens = Math.floor(i / 10) % 10;
+    const hunds = Math.floor(i / 100) % 10;
+    const thous = Math.floor(i / 1000) % 10;
+    const tenThous = Math.floor( i / 10000) % 10;
+    const hundThous = Math.floor( i / 100000) % 10;
+    if(ones <= tens && tens <= hunds && hunds <= thous && thous <= tenThous && tenThous <= hundThous && (ones === tens || tens === hunds || hunds === thous || thous === tenThous || tenThous === hundThous)){
+        validNums.push(i);
+    }
+}
+undefined
+for(let i = 372037; i <= 905157; i++){
+    const ones = i % 10;
+    const tens = Math.floor(i / 10) % 10;
+    const hunds = Math.floor(i / 100) % 10;
+    const thous = Math.floor(i / 1000) % 10;
+    const tenThous = Math.floor( i / 10000) % 10;
+    const hundThous = Math.floor( i / 100000) % 10;
+    if(ones >= tens && tens >= hunds && hunds >= thous && thous >= tenThous && tenThous >= hundThous && (ones === tens || tens === hunds || hunds === thous || thous === tenThous || tenThous === hundThous)){
+        count++;
+    }
+}
+undefined
+count
+481
+let smallerCount = 0;
+undefined
+for(let i = 372037; i <= 905157; i++){
+    const ones = i % 10;
+    const tens = Math.floor(i / 10) % 10;
+    const hunds = Math.floor(i / 100) % 10;
+    const thous = Math.floor(i / 1000) % 10;
+    const tenThous = Math.floor( i / 10000) % 10;
+    const hundThous = Math.floor( i / 100000) % 10;
+    if(ones >= tens && tens >= hunds && hunds >= thous && thous >= tenThous && tenThous >= hundThous && ((ones === tens && tens !== hunds) || (tens === hunds && tens !== ones && hunds !== thous) || (hunds === thous && hunds !== tens && thous !== tenThous) || (thous === tenThous && thous !== hunds && tenThous !== hundThous) || (tenThous === hundThous && tenThous !== thous))){
+        smallerCount++;
+    }
+}
+undefined
+smallerCount
+299

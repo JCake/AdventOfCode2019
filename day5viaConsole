@@ -1,0 +1,336 @@
+const arr = document.querySelector('pre').innerText.split(',').map(x => parseInt(x))
+undefined
+let index = 0;
+undefined
+let output = 0;
+undefined
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+    if(instruction > 99){
+        
+VM577:4 Uncaught SyntaxError: Unexpected end of input
+Math.floor(102/100) % 10
+        
+1
+Math.floor(1002/1000) % 10
+1
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+    if(instruction > 99){
+        
+VM783:5 Uncaught SyntaxError: Unexpected end of input
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 1;
+		index += 2;
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+    }
+}
+# Infinite loop here so started over in a new console:      
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 1;
+		index += 2;
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+    }
+}
+VM25:1 Uncaught ReferenceError: index is not defined
+    at <anonymous>:1:26
+(anonymous) @ VM25:1
+let arr = document.querySelector('pre').innerText.split(',').map(x => parseInt(x, 10))
+undefined
+let index = 0;
+undefined
+let output = 0;
+undefined
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 1;
+		index += 2;
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		index += 2;
+    }
+}
+222
+output
+16574641
+arr = document.querySelector('pre').innerText.split(',').map(x => parseInt(x, 10))
+(678) [3, 225, 1, 225, 6, 6, 1100, 1, 238, 225, 104, 0, 1101, 61, 45, 225, 102, 94, 66, 224, 101, -3854, 224, 224, 4, 224, 102, 8, 223, 223, 1001, 224, 7, 224, 1, 223, 224, 223, 1101, 31, 30, 225, 1102, 39, 44, 224, 1001, 224, -1716, 224, 4, 224, 102, 8, 223, 223, 1001, 224, 7, 224, 1, 224, 223, 223, 1101, 92, 41, 225, 101, 90, 40, 224, 1001, 224, -120, 224, 4, 224, 102, 8, 223, 223, 1001, 224, 1, 224, 1, 223, 224, 223, 1101, 51, 78, 224, 101, -129, 224, 224, 4, 224, …]
+index = 0;
+0
+output = 0;
+0
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2 || op === 7 || op === 8){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else if(op === 2) { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        } else if(op === 7) {
+			arr[arr[index + 3]] = paramVal1 < paramVal2 ? 1 : 0;
+        } else {
+			arr[arr[index + 3]] = paramVal1 === paramVal2 ? 1 : 0;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 5;
+		index += 2;
+    } else if (op === 5 || op === 6) {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]]
+		if ((paramVal1 && op === 5) || (!paramVal2 && op === 6)) {
+			index = arr[index + 2];
+        } else {
+			index += 3;
+        }
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		index += 2;
+    }
+}
+VM785:24 Uncaught ReferenceError: paramVal2 is not defined
+    at <anonymous>:24:36
+(anonymous) @ VM785:24
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2 || op === 7 || op === 8){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else if(op === 2) { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        } else if(op === 7) {
+			arr[arr[index + 3]] = paramVal1 < paramVal2 ? 1 : 0;
+        } else {
+			arr[arr[index + 3]] = paramVal1 === paramVal2 ? 1 : 0;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 5;
+		index += 2;
+    } else if (op === 5 || op === 6) {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]]
+		if ((paramVal1 && op === 5) || (!paramVal1 && op === 6)) {
+			index = arr[index + 2];
+        } else {
+			index += 3;
+        }
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		index += 2;
+    }
+}
+2
+output
+225
+output = 0;
+0
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2 || op === 7 || op === 8){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else if(op === 2) { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        } else if(op === 7) {
+			arr[arr[index + 3]] = paramVal1 < paramVal2 ? 1 : 0;
+        } else {
+			arr[arr[index + 3]] = paramVal1 === paramVal2 ? 1 : 0;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 5;
+		index += 2;
+    } else if (op === 5 || op === 6) {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]]
+		if ((paramVal1 && op === 5) || (!paramVal1 && op === 6)) {
+			index = arr[index + 2];
+        } else {
+			index += 3;
+        }
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		break;
+    }
+}
+225
+index = 0
+0
+while(index < arr.length && output === 0){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2 || op === 7 || op === 8){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else if(op === 2) { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        } else if(op === 7) {
+			arr[arr[index + 3]] = paramVal1 < paramVal2 ? 1 : 0;
+        } else {
+			arr[arr[index + 3]] = paramVal1 === paramVal2 ? 1 : 0;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 5;
+		index += 2;
+    } else if (op === 5 || op === 6) {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]]
+		if ((paramVal1 && op === 5) || (!paramVal1 && op === 6)) {
+			index = arr[index + 2];
+        } else {
+			index += 3;
+        }
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		break;
+    }
+}
+undefined
+while(index < arr.length){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2 || op === 7 || op === 8){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else if(op === 2) { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        } else if(op === 7) {
+			arr[arr[index + 3]] = paramVal1 < paramVal2 ? 1 : 0;
+        } else {
+			arr[arr[index + 3]] = paramVal1 === paramVal2 ? 1 : 0;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 5;
+		index += 2;
+    } else if (op === 5 || op === 6) {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]]
+		if ((paramVal1 && op === 5) || (!paramVal1 && op === 6)) {
+			const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]]
+			index = paramVal2;
+        } else {
+			index += 3;
+        }
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		break;
+    }
+}
+225
+output = -1;
+-1
+index = 0;
+0
+arr = document.querySelector('pre').innerText.split(',').map(x => parseInt(x, 10))
+(678) [3, 225, 1, 225, 6, 6, 1100, 1, 238, 225, 104, 0, 1101, 61, 45, 225, 102, 94, 66, 224, 101, -3854, 224, 224, 4, 224, 102, 8, 223, 223, 1001, 224, 7, 224, 1, 223, 224, 223, 1101, 31, 30, 225, 1102, 39, 44, 224, 1001, 224, -1716, 224, 4, 224, 102, 8, 223, 223, 1001, 224, 7, 224, 1, 224, 223, 223, 1101, 92, 41, 225, 101, 90, 40, 224, 1001, 224, -120, 224, 4, 224, 102, 8, 223, 223, 1001, 224, 1, 224, 1, 223, 224, 223, 1101, 51, 78, 224, 101, -129, 224, 224, 4, 224, …]
+while(index < arr.length){
+    const instruction = arr[index];
+	const op = instruction % 10;
+	const param1Mode = Math.floor(instruction / 100) % 10;
+	const param2Mode = Math.floor(instruction / 1000) % 10;
+    if(op === 1 || op === 2 || op === 7 || op === 8){
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]];
+		if(op === 1) {
+			arr[arr[index + 3]] = paramVal1 + paramVal2;
+        } else if(op === 2) { 
+			arr[arr[index + 3]] = paramVal1 * paramVal2;
+        } else if(op === 7) {
+			arr[arr[index + 3]] = paramVal1 < paramVal2 ? 1 : 0;
+        } else {
+			arr[arr[index + 3]] = paramVal1 === paramVal2 ? 1 : 0;
+        }
+		index += 4;
+    } else if (op === 3) {
+		arr[arr[index + 1]] = 5;
+		index += 2;
+    } else if (op === 5 || op === 6) {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]]
+		if ((paramVal1 && op === 5) || (!paramVal1 && op === 6)) {
+			const paramVal2 = param2Mode ? arr[index + 2] : arr[arr[index + 2]]
+			index = paramVal2;
+        } else {
+			index += 3;
+        }
+    } else {
+		const paramVal1 = param1Mode ? arr[index + 1] : arr[arr[index + 1]];
+		output = paramVal1;
+		break;
+    }
+}
+15163975
+output
+15163975

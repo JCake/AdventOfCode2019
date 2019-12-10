@@ -1,0 +1,142 @@
+let allOrbits = document.querySelector('pre').split();
+VM138:1 Uncaught TypeError: document.querySelector(...).split is not a function
+    at <anonymous>:1:47
+(anonymous) @ VM138:1
+let allOrbits = document.querySelector('pre').innerText.split();
+VM154:1 Uncaught SyntaxError: Identifier 'allOrbits' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM154:1
+allOrbits = document.querySelector('pre').innerText.split();
+VM165:1 Uncaught ReferenceError: allOrbits is not defined
+    at <anonymous>:1:11
+(anonymous) @ VM165:1
+let allOrbits = document.querySelector('pre').innerText.split();
+VM172:1 Uncaught SyntaxError: Identifier 'allOrbits' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM172:1
+let allOrbits2 = document.querySelector('pre').innerText.split();
+undefined
+allOrbits2
+["FGY)61Z↵2BN)LM7↵QXY)TVB↵5M5)Y6C↵2L2)64M↵6TT)183↵H6…↵C4N)RHS↵484)8YR↵SKV)YWS↵72M)F1F↵3ZK)RSW↵1LV)GFH↵"]
+allOrbits2[0].split('\n
+VM256:1 Uncaught SyntaxError: Invalid or unexpected token
+allOrbits2[0].split('\n')
+(1070) ["FGY)61Z", "2BN)LM7", "QXY)TVB", "5M5)Y6C", "2L2)64M", "6TT)183", "H6P)6TT", "LPL)WP5", "TDW)SDV", "4N3)LHM", "MJ7)STL", "V17)4QM", "2XW)R2P", "CMK)P3C", "KN5)XBH", "4GV)Z17", "VQW)KD6", "N6Q)GBK", "LZC)5R2", "3Z1)L7Y", "1LV)QCF", "NQ5)6K4", "3XX)D1H", "YT6)DXZ", "JFB)CMF", "NFC)DYG", "VG6)W38", "31Z)TCV", "597)H8Q", "GK1)MSN", "69N)W4Y", "3NY)1FX", "W81)3XX", "LP1)KBR", "3KD)X65", "YSD)HLF", "WKN)NXN", "C9S)NYS", "9DX)Y3V", "VY4)YSL", "2V4)79M", "X68)1RB", "53T)H97", "TKM)2J1", "K8M)N95", "HZ2)J3B", "R6Z)KQ1", "96F)5WS", "W68)KQ5", "H4G)NCN", "WXV)BH6", "8Z1)KVB", "WGQ)18Y", "4M1)9D8", "2NH)RLJ", "KVB)1Y5", "3SG)RFG", "GBD)HZJ", "1W4)JZ4", "4W5)R1J", "6KP)GJB", "1QS)4D5", "1Q4)FDD", "DZX)Q8F", "7MB)1RF", "RFG)TKV", "LK4)QTF", "YKS)LLV", "4Z9)2BL", "VNR)WJ4", "81Z)KNH", "2V7)9LV", "MCW)LRD", "SGB)HTX", "NKK)DGX", "MHG)C7W", "2T7)6VV", "X9J)2CL", "8CF)RPP", "LVZ)GY6", "NDK)D1V", "JYG)LTF", "ZL3)JP5", "RZP)NGS", "6LW)212", "4QM)6B2", "351)ZCK", "8FJ)JF9", "TH4)XZV", "3HK)1W4", "DCX)TKM", "8JW)CCB", "Z5Y)4N7", "L73)1XV", "4QJ)6VW", "F4H)8C7", "RKS)BQ9", "HHB)RWF", "2T7)X5H", "XQF)HXM", …][0 … 99][100 … 199][200 … 299][300 … 399][400 … 499][500 … 599][600 … 699][700 … 799][800 … 899][900 … 999][1000 … 1069]1000: "QYV)RLB"1001: "M9R)NJB"1002: "W52)262"1003: "GFH)N6Q"1004: "KJN)PJJ"1005: "VX3)49Z"1006: "LS2)Q4D"1007: "NPC)TQP"1008: "B2H)HMK"1009: "5DM)2WF"1010: "TJ2)WKB"1011: "NWQ)NN3"1012: "62H)5D3"1013: "LQ8)5JM"1014: "F9R)R66"1015: "6L2)WW5"1016: "RMB)VKX"1017: "VXF)19R"1018: "VMQ)WZ1"1019: "6C2)Y9Z"1020: "YCT)6RT"1021: "YNQ)QW9"1022: "LWG)4HR"1023: "7C5)351"1024: "BK8)B5S"1025: "79M)2S5"1026: "BCV)6TZ"1027: "KPR)WCJ"1028: "6TZ)Q8J"1029: "XLV)1CM"1030: "2YQ)W1M"1031: "M17)9J6"1032: "H4G)M3V"1033: "8SK)CM2"1034: "V4N)FWT"1035: "4TV)93R"1036: "ZZM)9RW"1037: "VLB)6S1"1038: "G1B)KDN"1039: "6XD)P7W"1040: "GBK)8HV"1041: "KGL)44W"1042: "ZBW)ZYN"1043: "28F)8NM"1044: "Q4D)JBS"1045: "RB8)GGX"1046: "XKN)LT7"1047: "Q29)BZD"1048: "47R)L7S"1049: "JN5)KD8"1050: "G7N)YC8"1051: "VR5)NH5"1052: "JNR)BJL"1053: "PQ7)XLV"1054: "WJS)6JT"1055: "RHQ)XZ6"1056: "113)Q29"1057: "VCJ)XSQ"1058: "52Z)T7V"1059: "L7X)SKG"1060: "S8N)Y7G"1061: "CJ1)NL1"1062: "QS5)RRM"1063: "C4N)RHS"1064: "484)8YR"1065: "SKV)YWS"1066: "72M)F1F"1067: "3ZK)RSW"1068: "1LV)GFH"1069: ""length: 1070__proto__: Array(0)
+let allOrbitsArr = allOrbits2[0].split('\n')
+undefined
+let allObjects = new Set();
+undefined
+allOrbitsArr.forEach(dirOrb => {
+    let objs = dirOrb.split(')');
+	allObjects.add(objs[0]);
+	allObjects.add(objs[1]);
+}
+VM570:5 Uncaught SyntaxError: missing ) after argument list
+allOrbitsArr.forEach(dirOrb => {
+    let objs = dirOrb.split(')');
+	allObjects.add(objs[0]);
+	allObjects.add(objs[1]);
+});
+undefined
+let dirOrbits = new Map();
+undefined
+allOrbitsArr.forEach(dirOrb => {
+    let objs = dirOrb.split(')');
+	dirOrbits.set(objs[1], objs[0]);
+});
+undefined
+let orbitCount = 0;
+undefined
+allObjects.forEach((obj) => {
+    let curObj = obj;
+	while(dirOrbits.has(curObj)){
+		orbitCount++;
+		curObj = dirOrbits.get(curOjb);
+    }
+});
+VM1217:5 Uncaught ReferenceError: curOjb is not defined
+    at <anonymous>:5:26
+    at Set.forEach (<anonymous>)
+    at <anonymous>:1:12
+(anonymous) @ VM1217:5
+(anonymous) @ VM1217:1
+allObjects.forEach((obj) => {
+    let curObj = obj;
+	while(dirOrbits.has(curObj)){
+		orbitCount++;
+		curObj = dirOrbits.get(curObj);
+    }
+});
+undefined
+orbitCount
+162818
+orbitCount = 0;
+0
+allObjects = [];
+[]
+dirOrbits.forEach((value, key) => {
+    if(allObjects.indexOf(key) === -1){
+        allObjects.push(key);
+    }
+});
+undefined
+allObjects.forEach((obj) => {
+    let curObj = obj;
+	while(dirOrbits.has(curObj)){
+		orbitCount++;
+		curObj = dirOrbits.get(curObj);
+    }
+});
+undefined
+orbitCount = 0;
+0
+allObjects.filter((obj) => obj && obj !== '').forEach((obj) => {
+    let curObj = obj;
+	while(dirOrbits.has(curObj)){
+		orbitCount++;
+		curObj = dirOrbits.get(curObj);
+    }
+});
+undefined
+orbitCount
+162816
+let youPath = '';
+undefined
+let curObj = 'YOU';
+undefined
+while(dirOrbits.has(curObj)){
+    youPath =+ dirOrbits.get(curObj) + '--';
+    curObj = dirOrbits.get(curObj);
+}
+"COM"
+youPath = '';
+""
+curObj = 'YOU';
+"YOU"
+while(dirOrbits.has(curObj)){
+    youPath = youPath + dirOrbits.get(curObj) + '--';
+    curObj = dirOrbits.get(curObj);
+}
+"COM"
+youPath = youPath.split('--');
+(275) ["6KQ", "TBN", "BPX", "TKV", "RFG", "3SG", "S4B", "LM7", "2BN", "7ZX", "9B4", "NYS", "C9S", "2V2", "R2J", "BJ7", "68L", "SJM", "1M4", "X92", "1J9", "PFH", "W19", "FR3", "J4Q", "WZ7", "RKH", "KD8", "JN5", "61X", "X5Q", "9FL", "VX4", "94S", "RQX", "K9P", "J29", "GT6", "FDY", "8N7", "T2N", "487", "WY2", "771", "CTR", "P8C", "P3N", "45G", "VK9", "NJB", "M9R", "JRF", "8DH", "R66", "F9R", "JNY", "LRD", "MCW", "53D", "R1J", "4W5", "DC6", "Y1S", "6XD", "M8C", "P5X", "V9J", "RGV", "XS1", "YC8", "G7N", "SXQ", "8Z8", "GFG", "X5R", "WSY", "X34", "DQ4", "1FS", "6VW", "4QJ", "F5V", "R21", "G3Q", "677", "8YR", "484", "YMB", "PC3", "SMJ", "Q8X", "YWS", "SKV", "BJK", "Z6S", "1FX", "3NY", "VQ7", "KVH", "DXN", …][0 … 99][100 … 199][200 … 274]200: "9J6"201: "M17"202: "DGZ"203: "S2D"204: "46N"205: "9KC"206: "HCT"207: "9WV"208: "GVG"209: "JP5"210: "ZL3"211: "SM3"212: "9L3"213: "5WS"214: "96F"215: "PHC"216: "62G"217: "19R"218: "VXF"219: "BC5"220: "L7M"221: "CN9"222: "6VV"223: "2T7"224: "Y1T"225: "72R"226: "ZSW"227: "KJB"228: "TRR"229: "LPR"230: "K7N"231: "HLF"232: "YSD"233: "LLV"234: "YKS"235: "3WP"236: "J5Q"237: "RLJ"238: "2NH"239: "W8S"240: "HG8"241: "NT4"242: "KNH"243: "81Z"244: "VK5"245: "VKJ"246: "2WD"247: "JW4"248: "VDJ"249: "M2S"250: "QST"251: "GMR"252: "PND"253: "QP1"254: "M72"255: "7DC"256: "FHY"257: "ZVX"258: "QTF"259: "LK4"260: "T9Z"261: "6LB"262: "6VX"263: "J4C"264: "2YN"265: "J9W"266: "QXF"267: "3V2"268: "SX6"269: "2YC"270: "TPY"271: "V6Q"272: "ML7"273: "COM"274: ""length: 275__proto__: Array(0)
+let santaPath = [];
+undefined
+curObj = 'SAN';
+"SAN"
+while(dirOrbits.has(curObj)){
+    santaPath.push(dirOrbits.get(curObj));
+    curObj = dirOrbits.get(curObj);
+}
+"COM"
+let minOrbits = youPath.length + santaPath.length;
+undefined
+for(let i = 0; i < youPath.length; i++){
+    let j = santaPath.indexOf(youPath[i]);
+    if(j >= 0 && j + i < minOrbits){
+        minOrbits = j + i;
+    }
+}
+undefined
+minOrbits
+304

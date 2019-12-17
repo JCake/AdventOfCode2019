@@ -1,0 +1,117 @@
+let moon1 = {x:-16, y:-1, z: -12; xv: 0, yv: 0, zv: 0}
+VM185:1 Uncaught SyntaxError: Unexpected token ';'
+let moon1 = {x:-16, y:-1, z: -12, xv: 0, yv: 0, zv: 0}
+undefined
+let moon2 = {x:0, y:-4, z: -17, xv: 0, yv: 0, zv: 0}
+undefined
+let moon3 = {x:-11, y:11, z: 0, xv: 0, yv: 0, zv: 0}
+undefined
+let moon4 = {x:2, y:2, z: -6, xv: 0, yv: 0, zv: 0}
+undefined
+let updateVelocities = (moons) => {
+    moons.forEach((m1) => {
+        moons.forEach((m2) => {
+			if(m1.x < m2.x){
+                m1.xv = m1.xv + 1;
+                m2.xv = m2.xv - 1;
+            } else if(m1.x > m2.x) {
+                m1.xv = m1.xv - 1;
+                m2.xv = m2.xv + 1;
+            }
+			if(m1.y < m2.y){
+                m1.yv = m1.yv + 1;
+                m2.yv = m2.yv - 1;
+            } else if(m1.y > m2.y) {
+                m1.yv = m1.yv - 1;
+                m2.yv = m2.yv + 1;
+            }
+			if(m1.z < m2.z){
+                m1.zv = m1.zv + 1;
+                m2.zv = m2.zv - 1;
+            } else if(m1.z > m2.z) {
+                m1.zv = m1.zv - 1;
+                m2.zv = m2.zv + 1;
+            }
+        });
+    });
+};
+undefined
+let moons = [{x:-11, y:11, z: 0, xv: 0, yv: 0, zv: 0},{x:2, y:2, z: -6, xv: 0, yv: 0, zv: 0}];
+undefined
+updateVelocities(moons)
+undefined
+moons;
+(2) [{…}, {…}]0: x: -11xv: 2y: 11yv: -2z: 0zv: -2__proto__: Object1: x: 2xv: -2y: 2yv: 2z: -6zv: 2__proto__: Objectlength: 2__proto__: Array(0)
+updateVelocities = (moons) => {
+    moons.forEach((m1, index1) => {
+        moons.forEach((m2, index2) => {
+			if(index2 > index1){
+                if(m1.x < m2.x){
+                    m1.xv = m1.xv + 1;
+                    m2.xv = m2.xv - 1;
+                } else if(m1.x > m2.x) {
+                    m1.xv = m1.xv - 1;
+                    m2.xv = m2.xv + 1;
+                }
+                if(m1.y < m2.y){
+                    m1.yv = m1.yv + 1;
+                    m2.yv = m2.yv - 1;
+                } else if(m1.y > m2.y) {
+                    m1.yv = m1.yv - 1;
+                    m2.yv = m2.yv + 1;
+                }
+                if(m1.z < m2.z){
+                    m1.zv = m1.zv + 1;
+                    m2.zv = m2.zv - 1;
+                } else if(m1.z > m2.z) {
+                    m1.zv = m1.zv - 1;
+                    m2.zv = m2.zv + 1;
+                }
+            }
+        });
+    });
+};
+(moons) => {
+    moons.forEach((m1, index1) => {
+        moons.forEach((m2, index2) => {
+			if(index2 > index1){
+                if(m1.x < m2.x){
+                    m1.xv = m1.xv + 1;
+              …
+moons = [{x:-11, y:11, z: 0, xv: 0, yv: 0, zv: 0},{x:2, y:2, z: -6, xv: 0, yv: 0, zv: 0}];
+(2) [{…}, {…}]
+updateVelocities(moons)
+undefined
+moons
+(2) [{…}, {…}]0: x: -11xv: 1y: 11yv: -1z: 0zv: -1__proto__: Object1: x: 2xv: -1y: 2yv: 1z: -6zv: 1__proto__: Objectlength: 2__proto__: Array(0)
+updatePositions = (moons) => {
+    moons.forEach((moon) => {
+        moon.x = moon.x + moon.xv;
+        moon.y = moon.y + moon.yv;
+        moon.z = moon.z + moon.zv;
+    });
+};
+(moons) => {
+    moons.forEach((moon) => {
+        moon.x = moon.x + moon.xv;
+        moon.y = moon.y + moon.yv;
+        moon.z = moon.z + moon.zv;
+    });
+}
+updatePositions(moons)
+undefined
+moons
+(2) [{…}, {…}]0: {x: -10, y: 10, z: -1, xv: 1, yv: -1, …}1: {x: 1, y: 3, z: -5, xv: -1, yv: 1, …}x: 1xv: -1y: 3yv: 1z: -5zv: 1__proto__: Objectlength: 2__proto__: Array(0)
+moons = [moon1, moon2, moon3, moon4];
+(4) [{…}, {…}, {…}, {…}]
+for(let i = 0; i < 1000; i++){
+    updateVelocities(moons);
+    updatePositions(moons);
+}
+undefined
+let moonEnery = (moon) => {
+    return (Math.abs(moon.x) + Math.abs(moon.y) + Math.abs(moon.z)) * (Math.abs(moon.xv) + Math.abs(moon.yv) + Math.abs(moon.zv));
+}
+undefined
+moonEnery(moon1) + moonEnery(moon2) + moonEnery(moon3) + moonEnery(moon4)
+5517

@@ -1,0 +1,160 @@
+let step = (input) => {
+    let newState = [];
+    newState = input.map(row => row.slice());
+    for(let row = 0; row < input.length; row++){
+        for(let col = 0; col < input[row].length; col++){
+            let alive = input[row][col] === '#';
+            let neighborCount = 0;
+            if(row > 0){
+                neighborCount += input[row-1][col] === '#';
+            }
+            if(row < input.length - 1){
+                neighborCount += input[row+1][col] === '#';
+            }
+            if(col > 0){
+                neighborCount += input[row][col-1] === '#';
+            }
+            if(col < input[row].length - 1){
+                neighborCount += input[row][col+1] === '#';
+            }
+            newState[row][col] = (alive && neighborCount === 1) || (!alive && (neighborCount === 1 || neighborCount === 2)) ? '#' : '.';
+        }
+    }
+};
+            
+undefined
+let input = ['....#',
+'#..#.',
+'#..##',
+'..#..',
+'#....'].map((row) => row.split(''));
+undefined
+step(input);
+undefined
+step = (input) => {
+    let newState = [];
+    newState = input.map(row => row.slice());
+    for(let row = 0; row < input.length; row++){
+        for(let col = 0; col < input[row].length; col++){
+            let alive = input[row][col] === '#';
+            let neighborCount = 0;
+            if(row > 0){
+                neighborCount += input[row-1][col] === '#';
+            }
+            if(row < input.length - 1){
+                neighborCount += input[row+1][col] === '#';
+            }
+            if(col > 0){
+                neighborCount += input[row][col-1] === '#';
+            }
+            if(col < input[row].length - 1){
+                neighborCount += input[row][col+1] === '#';
+            }
+            newState[row][col] = (alive && neighborCount === 1) || (!alive && (neighborCount === 1 || neighborCount === 2)) ? '#' : '.';
+        }
+    }
+    return newState;
+};
+(input) => {
+    let newState = [];
+    newState = input.map(row => row.slice());
+    for(let row = 0; row < input.length; row++){
+        for(let col = 0; col < input[row].length; col++){
+          …
+step(input);
+(5) [Array(5), Array(5), Array(5), Array(5), Array(5)]0: (5) ["#", ".", ".", "#", "."]1: (5) ["#", "#", "#", "#", "."]2: (5) ["#", "#", "#", ".", "#"]3: (5) ["#", "#", ".", "#", "#"]4: (5) [".", "#", "#", ".", "."]length: 5__proto__: Array(0)
+input = ['....#',
+'#..#.',
+'#..##',
+'..#..',
+'#....'].map((row) => row.split(''));
+(5) [Array(5), Array(5), Array(5), Array(5), Array(5)]
+let input2 = ['....#',
+'#..#.',
+'#..##',
+'..#..',
+'#....'].map((row) => row.split(''));
+undefined
+let inputAsString = input.map((row) => row.join('')).join('')
+undefined
+let input2AsString = input2.map((row) => row.join('')).join('');
+undefined
+inputAsString === input2AsString
+true
+let convertToStr = (arr) => arr.map((row) => row.join('')).join('');
+undefined
+let foundConfigs = new Set();
+undefined
+let foundMatch = false;
+undefined
+foundConfigs.add(inputAsString);
+Set(1) {"....##..#.#..##..#..#...."}
+foundConfigs.has(input2AsString);
+true
+foundConfigs = new Set();
+Set(0) {}
+input = ['....#',
+'#..#.',
+'#..##',
+'..#..',
+'#....'].map((row) => row.split(''));
+    
+(5) [Array(5), Array(5), Array(5), Array(5), Array(5)]
+while(!foundMatch){
+    foundConfigs.add(convertToStr(input));
+    input = step(input);
+    if(foundConfigs.has(convertToStr(input))){
+        foundMatch = true;
+    }
+}
+true
+input
+(5) [Array(5), Array(5), Array(5), Array(5), Array(5)]0: (5) [".", ".", ".", ".", "."]1: (5) [".", ".", ".", ".", "."]2: (5) [".", ".", ".", ".", "."]3: (5) ["#", ".", ".", ".", "."]4: (5) [".", "#", ".", ".", "."]length: 5__proto__: Array(0)
+let matchingStr = convertToStr(input);
+undefined
+let sum = 0;
+undefined
+matchingStr.split('').forEach((char, index) => {
+    if(char === '#'){
+        sum += Math.pow(2, index);
+    }
+}
+VM3222:5 Uncaught SyntaxError: missing ) after argument list
+matchingStr.split('').forEach((char, index) => {
+    if(char === '#'){
+        sum += Math.pow(2, index);
+    }
+});
+undefined
+sum
+2129920
+sum = 0;
+0
+foundMatch = false;
+false
+foundConfigs = new Set();
+Set(0) {}
+input = ['..###',
+'##...',
+'#...#',
+'#.#.#',
+'.#.#.'].map((row) => row.split(''));
+(5) [Array(5), Array(5), Array(5), Array(5), Array(5)]
+while(!foundMatch){
+    foundConfigs.add(convertToStr(input));
+    input = step(input);
+    if(foundConfigs.has(convertToStr(input))){
+        foundMatch = true;
+    }
+}
+true
+matchingStr = convertToStr(input);
+"#####..........###...##.."
+matchingStr.split('').forEach((char, index) => {
+    if(char === '#'){
+        sum += Math.pow(2, index);
+    }
+});
+undefined
+sum
+6520863

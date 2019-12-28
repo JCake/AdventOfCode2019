@@ -1,0 +1,68 @@
+Math.abs(-7 % 10)
+7
+Math.abs(-17 % 10)
+7
+let calcOutput = (input) => {
+    let inputArr = input.split('').map(x => parseInt(x, 10));
+    for(let i = 0; i < inputArr.length; i++){
+VM449:3 Uncaught SyntaxError: Unexpected end of input
+let calcOutput = (input) => {
+    let inputArr = input.split('').map(x => parseInt(x, 10));
+    let output = '';
+    for(let i = 0; i < inputArr.length; i++){
+        let multipliers = [];
+        while(multipliers.length < inputArr.length){
+            [0,1,0,-1].forEach((multiplier) => {
+                for(let j = 0; j<=i; j++){
+                    multipliers.push(multiplier);
+                }
+            });
+        }
+        let sum = 0;
+        for(let i2 = 0; i2 < inputArr.length; i2++){
+            sum += inputArr[i2] * multipliers[i2];
+        }
+        let digit = Math.abs(sum % 10);
+        output = output + digit;
+    }
+    return output;
+}
+undefined
+calcOutput('12345678');
+"48561580"
+calcOutput = (input) => {
+    let inputArr = input.split('').map(x => parseInt(x, 10));
+    let output = '';
+    for(let i = 0; i < inputArr.length; i++){
+        let multipliers = [];
+        while(multipliers.length < inputArr.length + 1){
+            [0,1,0,-1].forEach((multiplier) => {
+                for(let j = 0; j<=i; j++){
+                    multipliers.push(multiplier);
+                }
+            });
+        }
+        multipliers = multipliers.slice(1);
+        let sum = 0;
+        for(let i2 = 0; i2 < inputArr.length; i2++){
+            sum += inputArr[i2] * multipliers[i2];
+        }
+        let digit = Math.abs(sum % 10);
+        output = output + digit;
+    }
+    return output;
+}
+(input) => {
+    let inputArr = input.split('').map(x => parseInt(x, 10));
+    let output = '';
+    for(let i = 0; i < inputArr.length; i++){
+        let multipliers = [];
+        while(multipliers.l…
+calcOutput('12345678');
+"48226158"
+let input = '80871224585914546619083218645595';
+undefined
+for(let iter = 0; iter < 100; iter++){
+    input = calcOutput(input);
+}
+"24176176480919046114038763195595"

@@ -1,0 +1,887 @@
+let stepsToOre = (element, transitions) => {
+    let transition = transitions.get(element);
+    if(transition.input[0].element === 'ORE'){
+        return 1;
+    } else {
+        let minNextSteps = 999;
+        transition.input.forEach((input) => {
+            let nextSteps = stepsToOre(input.element, transitions);
+            if(nextSteps < minNextSteps){
+                minNextSteps = nextSteps;
+            }
+        });
+        return 1 + minNextSteps;
+    }
+}
+undefined
+let transitionsStr = `10 ORE => 10 A
+1 ORE => 1 B
+7 A, 1 B => 1 C
+7 A, 1 C => 1 D
+7 A, 1 D => 1 E
+7 A, 1 E => 1 FUEL`;
+undefined
+let buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(',');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = output[0];
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: thisInput[0]};
+        });
+        transitions.put(outputElement, {input, outputElement, outputQuantity});
+    });
+}
+undefined
+ buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(',');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = output[0];
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: thisInput[0]};
+        });
+        transitions.put(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+buildTransitions(transitionsStr);
+VM2558:14 Uncaught TypeError: transitions.put is not a function
+    at <anonymous>:14:21
+    at Array.forEach (<anonymous>)
+    at buildTransitions (<anonymous>:4:20)
+    at <anonymous>:1:1
+(anonymous) @ VM2558:14
+buildTransitions @ VM2558:4
+(anonymous) @ VM2594:1
+buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(',');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = output[0];
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: thisInput[0]};
+        });
+        transitions.add(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+buildTransitions(transitionsStr);
+VM2602:14 Uncaught TypeError: transitions.add is not a function
+    at <anonymous>:14:21
+    at Array.forEach (<anonymous>)
+    at buildTransitions (<anonymous>:4:20)
+    at <anonymous>:1:1
+(anonymous) @ VM2602:14
+buildTransitions @ VM2602:4
+(anonymous) @ VM2608:1
+buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(',');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = output[0];
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: thisInput[0]};
+        });
+        transitions.set(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+buildTransitions(transitionsStr);
+Map(6) {"A" => {…}, "B" => {…}, "C" => {…}, "D" => {…}, "E" => {…}, …}[[Entries]]0: {"A" => Object}key: "A"value: input: Array(1)0: {element: "ORE", quantity: "10"}length: 1__proto__: Array(0)outputElement: "A"outputQuantity: "10"__proto__: Object1: {"B" => Object}key: "B"value: input: Array(1)0: {element: "ORE", quantity: "1"}length: 1__proto__: Array(0)outputElement: "B"outputQuantity: "1"__proto__: Object2: {"C" => Object}3: {"D" => Object}4: {"E" => Object}5: {"FUEL" => Object}key: "FUEL"value: {input: Array(2), outputElement: "FUEL", outputQuantity: "1"}size: (...)__proto__: Map
+let transitions = buildTransitions(transitionsStr);
+undefined
+stepsToOre('A', transitions);
+1
+stepsToOre('B', transitions);
+1
+stepsToOre('FUEL', transitions);
+VM1044:3 Uncaught TypeError: Cannot read property 'input' of undefined
+    at stepsToOre (<anonymous>:3:19)
+    at <anonymous>:8:29
+    at Array.forEach (<anonymous>)
+    at stepsToOre (<anonymous>:7:26)
+    at <anonymous>:1:1
+stepsToOre @ VM1044:3
+(anonymous) @ VM1044:8
+stepsToOre @ VM1044:7
+(anonymous) @ VM2774:1
+stepsToOre = (element, transitions) => {
+    if(element === 'ORE') return 0;
+    let transition = transitions.get(element);
+    if(transition.input[0].element === 'ORE'){
+        return 1;
+    } else {
+        let minNextSteps = 999;
+        transition.input.forEach((input) => {
+            let nextSteps = stepsToOre(input.element, transitions);
+            if(nextSteps < minNextSteps){
+                minNextSteps = nextSteps;
+            }
+        });
+        return 1 + minNextSteps;
+    }
+}
+(element, transitions) => {
+    if(element === 'ORE') return 0;
+    let transition = transitions.get(element);
+    if(transition.input[0].element === 'ORE'){
+        return 1;
+    } else {
+        le…
+stepsToOre('FUEL', transitions);
+VM2821:4 Uncaught TypeError: Cannot read property 'input' of undefined
+    at stepsToOre (<anonymous>:4:19)
+    at <anonymous>:9:29
+    at Array.forEach (<anonymous>)
+    at stepsToOre (<anonymous>:8:26)
+    at <anonymous>:1:1
+stepsToOre @ VM2821:4
+(anonymous) @ VM2821:9
+stepsToOre @ VM2821:8
+(anonymous) @ VM2827:1
+stepsToOre = (element, transitions) => {
+    if(element === 'ORE') return 0;
+    let transition = transitions.get(element);
+    if(transition.input[0].element === 'ORE'){
+        return 1;
+    } else {
+        let maxNextSteps = 0;
+        transition.input.forEach((input) => {
+            let nextSteps = stepsToOre(input.element, transitions);
+            if(nextSteps > maxNextSteps){
+                maxNextSteps = nextSteps;
+            }
+        });
+        return 1 + maxNextSteps;
+    }
+}
+(element, transitions) => {
+    if(element === 'ORE') return 0;
+    let transition = transitions.get(element);
+    if(transition.input[0].element === 'ORE'){
+        return 1;
+    } else {
+        le…
+transitions
+Map(6) {"A" => {…}, "B" => {…}, "C" => {…}, "D" => {…}, "E" => {…}, …}[[Entries]]0: {"A" => Object}1: {"B" => Object}2: {"C" => Object}key: "C"value: input: Array(2)0: {element: "A", quantity: "7"}1: {element: "1", quantity: ""}length: 2__proto__: Array(0)outputElement: "C"outputQuantity: "1"__proto__: Object3: {"D" => Object}4: {"E" => Object}5: {"FUEL" => Object}size: (...)__proto__: Map
+buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(', ');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = output[0];
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: thisInput[0]};
+        });
+        transitions.set(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+transitions = buildTransitions(transitionsStr);
+Map(6) {"A" => {…}, "B" => {…}, "C" => {…}, "D" => {…}, "E" => {…}, …}
+stepsToOre('FUEL', transitions);
+5
+let translateToInput = (neededElement, neededQuantity, transitions) => {
+    let transition = transitions.get(neededElement);
+    let quantityPerTransition = transition.outputQuantity;
+    let neededTransitions = Math.ceil(neededQuantity / quantityPerTransition);
+    return transition.input.map((inp) => {
+        return {element: inp.element, quantity: inp.quantity * neededTransitions};
+    });
+}
+undefined
+translateToInput('FUEL', 1, transitions);
+(2) [{…}, {…}]0: {element: "A", quantity: 7}1: {element: "E", quantity: 1}length: 2__proto__: Array(0)
+translateToInput('A', 7, transitions);
+[{…}]0: {element: "ORE", quantity: 10}length: 1__proto__: Array(0)
+let countNeededOre = (transitions) => {
+    let neededInputs = translateToInput('FUEL', 1, transitions);
+    let stepCount = 0;
+    while(stepCount < 1000 && (neededInputs.length > 1 || neededInputs[0].element !== 'ORE')){
+        let nextToTranslate = '';
+        let nextToTranslateIndex = -1;
+        let maxStepsToOre = 0;
+        neededInputs.forEach((input, index) => {
+            let thisSteps = stepsToOre(input.element, transitions);
+            if(thisSteps > maxStepsToOre) {
+                maxStepsToOre = thisSteps;
+                nextToTranslate = input;
+                nextToTranslateIndex = index;
+            }
+        });
+        let newInputs = translateToInput(nextToTranslate.element, nextToTranslate.quantity, transitions);
+        neededInputs.splice(nextToTranslateIndex, 1);
+        newInputs.forEach((newInput) => {
+            let existingNeeded = neededInputs.find((input) => input.element === newInput.element);
+            if(existingNeeded) {
+                existingNeeded.quantity = existingNeeded.quantity + newInput.quantity;
+            } else {
+                neededInputs.push(newInput);
+            }
+        });
+        stepCount++;
+    }
+}
+                          
+
+undefined
+countNeededOre(transitions);
+undefined
+countNeededOre = (transitions) => {
+    let neededInputs = translateToInput('FUEL', 1, transitions);
+    let stepCount = 0;
+    while(stepCount < 1000 && (neededInputs.length > 1 || neededInputs[0].element !== 'ORE')){
+        let nextToTranslate = '';
+        let nextToTranslateIndex = -1;
+        let maxStepsToOre = 0;
+        neededInputs.forEach((input, index) => {
+            let thisSteps = stepsToOre(input.element, transitions);
+            if(thisSteps > maxStepsToOre) {
+                maxStepsToOre = thisSteps;
+                nextToTranslate = input;
+                nextToTranslateIndex = index;
+            }
+        });
+        let newInputs = translateToInput(nextToTranslate.element, nextToTranslate.quantity, transitions);
+        neededInputs.splice(nextToTranslateIndex, 1);
+        newInputs.forEach((newInput) => {
+            let existingNeeded = neededInputs.find((input) => input.element === newInput.element);
+            if(existingNeeded) {
+                existingNeeded.quantity = existingNeeded.quantity + newInput.quantity;
+            } else {
+                neededInputs.push(newInput);
+            }
+        });
+        stepCount++;
+    }
+    return neededInputs[0].quantity;
+}
+(transitions) => {
+    let neededInputs = translateToInput('FUEL', 1, transitions);
+    let stepCount = 0;
+    while(stepCount < 1000 && (neededInputs.length > 1 || neededInputs[0].element !== 'ORE')…
+countNeededOre(transitions);
+31
+transitionStr = `157 ORE => 5 NZVS
+165 ORE => 6 DCFZ
+44 XJWVT, 5 KHKGT, 1 QDVJ, 29 NZVS, 9 GPVTF, 48 HKGWZ => 1 FUEL
+12 HKGWZ, 1 GPVTF, 8 PSHF => 9 QDVJ
+179 ORE => 7 PSHF
+177 ORE => 5 HKGWZ
+7 DCFZ, 7 PSHF => 2 XJWVT
+165 ORE => 2 GPVTF
+3 DCFZ, 7 NZVS, 5 HKGWZ, 10 PSHF => 8 KHKGT1`;
+"157 ORE => 5 NZVS
+165 ORE => 6 DCFZ
+44 XJWVT, 5 KHKGT, 1 QDVJ, 29 NZVS, 9 GPVTF, 48 HKGWZ => 1 FUEL
+12 HKGWZ, 1 GPVTF, 8 PSHF => 9 QDVJ
+179 ORE => 7 PSHF
+177 ORE => 5 HKGWZ
+7 DCFZ, 7 PSHF => 2 XJWVT
+165 ORE => 2 GPVTF
+3 DCFZ, 7 NZVS, 5 HKGWZ, 10 PSHF => 8 KHKGT1"
+transitions = buildTransitions(transitionStr);
+Map(9) {"NZVS" => {…}, "DCFZ" => {…}, "FUEL" => {…}, "QDVJ" => {…}, "PSHF" => {…}, …}[[Entries]]0: {"NZVS" => Object}1: {"DCFZ" => Object}2: {"FUEL" => Object}3: {"QDVJ" => Object}4: {"PSHF" => Object}key: "PSHF"value: input: [{…}]outputElement: "PSHF"outputQuantity: "7"__proto__: Object5: {"HKGWZ" => Object}key: "HKGWZ"value: input: Array(1)0: {element: "ORE", quantity: "177"}length: 1__proto__: Array(0)outputElement: "HKGWZ"outputQuantity: "5"__proto__: Object6: {"XJWVT" => Object}key: "XJWVT"value: input: Array(2)0: {element: "DCFZ", quantity: "7"}1: {element: "PSHF", quantity: "7"}length: 2__proto__: Array(0)outputElement: "XJWVT"outputQuantity: "2"__proto__: Object7: {"GPVTF" => Object}key: "GPVTF"value: input: Array(1)0: {element: "ORE", quantity: "165"}length: 1__proto__: Array(0)outputElement: "GPVTF"outputQuantity: "2"__proto__: Object8: {"KHKGT1" => Object}key: "KHKGT1"value: input: Array(4)0: {element: "DCFZ", quantity: "3"}1: {element: "NZVS", quantity: "7"}2: {element: "HKGWZ", quantity: "5"}3: {element: "PSHF", quantity: "10"}length: 4__proto__: Array(0)outputElement: "KHKGT1"outputQuantity: "8"__proto__: Objectsize: (...)__proto__: Map
+buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(',');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = parseInt(output[0], 10);
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: parseInt(thisInput[0], 10)};
+        });
+        transitions.add(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+transitions = buildTransitions(transitionStr);
+VM6496:14 Uncaught TypeError: transitions.add is not a function
+    at <anonymous>:14:21
+    at Array.forEach (<anonymous>)
+    at buildTransitions (<anonymous>:4:20)
+    at <anonymous>:1:15
+(anonymous) @ VM6496:14
+buildTransitions @ VM6496:4
+(anonymous) @ VM6502:1
+buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(',');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = parseInt(output[0], 10);
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: parseInt(thisInput[0], 10)};
+        });
+        transitions.set(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+transitions = buildTransitions(transitionStr);
+Map(9) {"NZVS" => {…}, "DCFZ" => {…}, "FUEL" => {…}, "QDVJ" => {…}, "PSHF" => {…}, …}[[Entries]]0: {"NZVS" => Object}key: "NZVS"value: input: [{…}]outputElement: "NZVS"outputQuantity: 5__proto__: Object1: {"DCFZ" => Object}key: "DCFZ"value: input: [{…}]outputElement: "DCFZ"outputQuantity: 6__proto__: Object2: {"FUEL" => Object}key: "FUEL"value: input: Array(6)0: {element: "XJWVT", quantity: 44}1: {element: "5", quantity: NaN}2: {element: "1", quantity: NaN}3: {element: "29", quantity: NaN}4: {element: "9", quantity: NaN}5: {element: "48", quantity: NaN}length: 6__proto__: Array(0)outputElement: "FUEL"outputQuantity: 1__proto__: Object3: {"QDVJ" => Object}4: {"PSHF" => Object}5: {"HKGWZ" => Object}6: {"XJWVT" => Object}7: {"GPVTF" => Object}8: {"KHKGT1" => Object}size: (...)__proto__: Map
+countNeededOre(transitions);
+VM2857:4 Uncaught TypeError: Cannot read property 'input' of undefined
+    at stepsToOre (<anonymous>:4:19)
+    at <anonymous>:9:29
+    at Array.forEach (<anonymous>)
+    at stepsToOre (<anonymous>:8:26)
+    at <anonymous>:9:29
+    at Array.forEach (<anonymous>)
+    at countNeededOre (<anonymous>:8:22)
+    at <anonymous>:1:1
+stepsToOre @ VM2857:4
+(anonymous) @ VM2857:9
+stepsToOre @ VM2857:8
+(anonymous) @ VM6294:9
+countNeededOre @ VM6294:8
+(anonymous) @ VM6572:1
+stepsToOre = (element, transitions) => {
+    if(element === 'ORE') return 0;
+    let transition = transitions.get(element);
+    if(!transition){
+        console.log('No transition for ' + element);
+        return 0;
+    }
+    if(transition.input[0].element === 'ORE'){
+        return 1;
+    } else {
+        let maxNextSteps = 0;
+        transition.input.forEach((input) => {
+            let nextSteps = stepsToOre(input.element, transitions);
+            if(nextSteps > maxNextSteps){
+                maxNextSteps = nextSteps;
+            }
+        });
+        return 1 + maxNextSteps;
+    }
+}
+(element, transitions) => {
+    if(element === 'ORE') return 0;
+    let transition = transitions.get(element);
+    if(!transition){
+        console.log('No transition for ' + element);
+        return…
+countNeededOre(transitions);
+VM6686:5 No transition for 7
+VM6686:5 No transition for 5
+VM6686:5 No transition for 1
+VM6686:5 No transition for 29
+VM6686:5 No transition for 9
+VM6686:5 No transition for 48
+VM6686:5 No transition for 5
+VM6686:5 No transition for 1
+VM6686:5 No transition for 29
+VM6686:5 No transition for 9
+VM6686:5 No transition for 48
+VM6686:5 No transition for 7
+VM6686:5 No transition for 5
+VM6686:5 No transition for 1
+VM6686:5 No transition for 29
+VM6686:5 No transition for 9
+VM6686:5 No transition for 48
+VM6686:5 No transition for 7
+VM3955:3 Uncaught TypeError: Cannot read property 'outputQuantity' of undefined
+    at translateToInput (<anonymous>:3:44)
+    at countNeededOre (<anonymous>:16:25)
+    at <anonymous>:1:1
+translateToInput @ VM3955:3
+countNeededOre @ VM6294:16
+(anonymous) @ VM6788:1
+buildTransitions = (transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.split(' => ');
+        let inputs = inputOutput[0].split(', ');
+        let output = inputOutput[1].split(' ');
+        let outputElement = output[1];
+        let outputQuantity = parseInt(output[0], 10);
+        let input = inputs.map((inp) => {
+            let thisInput = inp.split(' ');
+            return {element: thisInput[1], quantity: parseInt(thisInput[0], 10)};
+        });
+        transitions.set(outputElement, {input, outputElement, outputQuantity});
+    });
+    return transitions;
+}
+(transitionsStr) => {
+    let transitionList = transitionsStr.split('\n');
+    let transitions = new Map();
+    transitionList.forEach((transitionStr) => {
+        let inputOutput = transitionStr.spl…
+transitions = buildTransitions(transitionStr);
+Map(9) {"NZVS" => {…}, "DCFZ" => {…}, "FUEL" => {…}, "QDVJ" => {…}, "PSHF" => {…}, …}[[Entries]]0: {"NZVS" => Object}1: {"DCFZ" => Object}2: {"FUEL" => Object}key: "FUEL"value: input: Array(6)0: {element: "XJWVT", quantity: 44}1: {element: "KHKGT", quantity: 5}2: {element: "QDVJ", quantity: 1}3: {element: "NZVS", quantity: 29}4: {element: "GPVTF", quantity: 9}5: {element: "HKGWZ", quantity: 48}length: 6__proto__: Array(0)outputElement: "FUEL"outputQuantity: 1__proto__: Object3: {"QDVJ" => Object}4: {"PSHF" => Object}5: {"HKGWZ" => Object}6: {"XJWVT" => Object}7: {"GPVTF" => Object}8: {"KHKGT1" => Object}size: (...)__proto__: Map
+countNeededOre(transitions);
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM6686:5 No transition for KHKGT
+VM3955:3 Uncaught TypeError: Cannot read property 'outputQuantity' of undefined
+    at translateToInput (<anonymous>:3:44)
+    at countNeededOre (<anonymous>:16:25)
+    at <anonymous>:1:1
+translateToInput @ VM3955:3
+countNeededOre @ VM6294:16
+(anonymous) @ VM6852:1
+transitionStr = `157 ORE => 5 NZVS
+165 ORE => 6 DCFZ
+44 XJWVT, 5 KHKGT, 1 QDVJ, 29 NZVS, 9 GPVTF, 48 HKGWZ => 1 FUEL
+12 HKGWZ, 1 GPVTF, 8 PSHF => 9 QDVJ
+179 ORE => 7 PSHF
+177 ORE => 5 HKGWZ
+7 DCFZ, 7 PSHF => 2 XJWVT
+165 ORE => 2 GPVTF
+3 DCFZ, 7 NZVS, 5 HKGWZ, 10 PSHF => 8 KHKGT`;
+"157 ORE => 5 NZVS
+165 ORE => 6 DCFZ
+44 XJWVT, 5 KHKGT, 1 QDVJ, 29 NZVS, 9 GPVTF, 48 HKGWZ => 1 FUEL
+12 HKGWZ, 1 GPVTF, 8 PSHF => 9 QDVJ
+179 ORE => 7 PSHF
+177 ORE => 5 HKGWZ
+7 DCFZ, 7 PSHF => 2 XJWVT
+165 ORE => 2 GPVTF
+3 DCFZ, 7 NZVS, 5 HKGWZ, 10 PSHF => 8 KHKGT"
+transitions = buildTransitions(transitionStr);
+Map(9) {"NZVS" => {…}, "DCFZ" => {…}, "FUEL" => {…}, "QDVJ" => {…}, "PSHF" => {…}, …}
+countNeededOre(transitions);
+13312
+transitionStr = `2 VPVL, 7 FWMGM, 2 CXFTF, 11 MNCFX => 1 STKFG
+17 NVRVD, 3 JNWZP => 8 VPVL
+53 STKFG, 6 MNCFX, 46 VJHF, 81 HVMC, 68 CXFTF, 25 GNMV => 1 FUEL
+22 VJHF, 37 MNCFX => 5 FWMGM
+139 ORE => 4 NVRVD
+144 ORE => 7 JNWZP
+5 MNCFX, 7 RFSQX, 2 FWMGM, 2 VPVL, 19 CXFTF => 3 HVMC
+5 VJHF, 7 MNCFX, 9 VPVL, 37 CXFTF => 6 GNMV
+145 ORE => 6 MNCFX
+1 NVRVD => 8 CXFTF
+1 VJHF, 6 MNCFX => 4 RFSQX
+176 ORE => 6 VJHF`;
+"2 VPVL, 7 FWMGM, 2 CXFTF, 11 MNCFX => 1 STKFG
+17 NVRVD, 3 JNWZP => 8 VPVL
+53 STKFG, 6 MNCFX, 46 VJHF, 81 HVMC, 68 CXFTF, 25 GNMV => 1 FUEL
+22 VJHF, 37 MNCFX => 5 FWMGM
+139 ORE => 4 NVRVD
+144 ORE => 7 JNWZP
+5 MNCFX, 7 RFSQX, 2 FWMGM, 2 VPVL, 19 CXFTF => 3 HVMC
+5 VJHF, 7 MNCFX, 9 VPVL, 37 CXFTF => 6 GNMV
+145 ORE => 6 MNCFX
+1 NVRVD => 8 CXFTF
+1 VJHF, 6 MNCFX => 4 RFSQX
+176 ORE => 6 VJHF"
+transitions = buildTransitions(transitionStr);
+Map(12) {"STKFG" => {…}, "VPVL" => {…}, "FUEL" => {…}, "FWMGM" => {…}, "NVRVD" => {…}, …}
+countNeededOre(transitions);
+180697
+transitionStr = `171 ORE => 8 CNZTR
+7 ZLQW, 3 BMBT, 9 XCVML, 26 XMNCP, 1 WPTQ, 2 MZWV, 1 RJRHP => 4 PLWSL
+114 ORE => 4 BHXH
+14 VRPVC => 6 BMBT
+6 BHXH, 18 KTJDG, 12 WPTQ, 7 PLWSL, 31 FHTLT, 37 ZDVW => 1 FUEL
+6 WPTQ, 2 BMBT, 8 ZLQW, 18 KTJDG, 1 XMNCP, 6 MZWV, 1 RJRHP => 6 FHTLT
+15 XDBXC, 2 LTCX, 1 VRPVC => 6 ZLQW
+13 WPTQ, 10 LTCX, 3 RJRHP, 14 XMNCP, 2 MZWV, 1 ZLQW => 1 ZDVW
+5 BMBT => 4 WPTQ
+189 ORE => 9 KTJDG
+1 MZWV, 17 XDBXC, 3 XCVML => 2 XMNCP
+12 VRPVC, 27 CNZTR => 2 XDBXC
+15 KTJDG, 12 BHXH => 5 XCVML
+3 BHXH, 2 VRPVC => 7 MZWV
+121 ORE => 7 VRPVC
+7 XCVML => 6 RJRHP
+5 BHXH, 4 VRPVC => 5 LTCX`;
+"171 ORE => 8 CNZTR
+7 ZLQW, 3 BMBT, 9 XCVML, 26 XMNCP, 1 WPTQ, 2 MZWV, 1 RJRHP => 4 PLWSL
+114 ORE => 4 BHXH
+14 VRPVC => 6 BMBT
+6 BHXH, 18 KTJDG, 12 WPTQ, 7 PLWSL, 31 FHTLT, 37 ZDVW => 1 FUEL
+6 WPTQ, 2 BMBT, 8 ZLQW, 18 KTJDG, 1 XMNCP, 6 MZWV, 1 RJRHP => 6 FHTLT
+15 XDBXC, 2 LTCX, 1 VRPVC => 6 ZLQW
+13 WPTQ, 10 LTCX, 3 RJRHP, 14 XMNCP, 2 MZWV, 1 ZLQW => 1 ZDVW
+5 BMBT => 4 WPTQ
+189 ORE => 9 KTJDG
+1 MZWV, 17 XDBXC, 3 XCVML => 2 XMNCP
+12 VRPVC, 27 CNZTR => 2 XDBXC
+15 KTJDG, 12 BHXH => 5 XCVML
+3 BHXH, 2 VRPVC => 7 MZWV
+121 ORE => 7 VRPVC
+7 XCVML => 6 RJRHP
+5 BHXH, 4 VRPVC => 5 LTCX"
+transitions = buildTransitions(transitionStr);
+Map(17) {"CNZTR" => {…}, "PLWSL" => {…}, "BHXH" => {…}, "BMBT" => {…}, "FUEL" => {…}, …}
+countNeededOre(transitions);
+2210736
+transitionStr = document.querySelector('pre').innerText;
+"3 LMPDB, 11 CBTKP => 7 PZDPS
+5 CBKW, 4 CXBH => 9 KXNDF
+1 LVDN, 4 HGDHV => 1 PCXS
+11 PCXS => 2 XTBRS
+5 RVSF => 7 TDCH
+1 CXBH, 6 PXVN => 8 GQXV
+3 DBCB, 3 QLNK => 4 CTFCD
+7 PZDPS, 18 HGDHV, 9 TBKM => 4 JHVL
+10 QGSV, 1 DBCB, 7 LTHFX => 3 BLRSQ
+12 CBTKP, 7 SPBF => 5 KSQL
+1 QXHDQ, 5 MQKH, 10 XRCB, 30 SQWHX, 2 PQZVD, 30 TFST, 39 JPFC, 1 FDGS, 17 LVDN => 1 FUEL
+2 TBKM => 8 PFHKT
+13 CBTKP => 5 QLNK
+12 TVRDM, 6 QGSV, 16 LMPDB => 4 PQZVD
+7 TDCH, 17 PXVN, 4 ZLKZ => 6 XRCB
+1 QBJQ, 26 CBKW => 4 RVSF
+24 KXNDF, 3 BLRSQ => 9 GSHKQ
+12 BLRSQ, 3 HGDHV => 9 RQNGQ
+2 RFBK, 2 WHWS => 8 CBKW
+1 WHWS => 7 LTHFX
+13 CKQLD, 10 ZLKZ, 2 GQXV => 8 TVHC
+1 DBCB => 2 JZXKW
+8 SPBF => 7 CXBH
+11 LTHFX, 1 PTGLG, 10 NCQTM => 6 SQWHX
+16 PFHKT => 3 HGDHV
+3 LVDN, 5 PZDPS, 1 SPBF => 9 CQBCL
+19 BLRSQ, 1 BLQRD, 5 GSHKQ, 2 LVDN, 3 LMPDB, 5 KTJR => 1 QXHDQ
+1 RFBK, 1 JPFC => 7 PXVN
+110 ORE => 3 MQKH
+1 FPBRB, 7 MQKH => 7 SDJBT
+128 ORE => 7 FPBRB
+3 WRWGP => 2 RFBK
+1 PFHKT, 4 SPBF => 7 JPFC
+14 LTHFX, 2 JZXKW, 2 BLRSQ, 2 MHVJP, 6 RQNGQ, 1 CQBCL, 8 TDCH, 2 NJTR => 2 FDGS
+4 SDJBT, 2 LMPDB => 8 PLGS
+1 RFBK, 1 TBKM => 6 CBTKP
+17 LVDN, 2 CBTKP => 4 QGSV
+7 WRWGP => 9 LMPDB
+3 CKQLD => 6 WHWS
+14 CBTKP, 9 XTBRS, 9 GSHKQ, 12 GQXV, 20 LTHFX, 1 RQNGQ, 1 KTJR, 3 BLRSQ => 7 TFST
+1 QPCQ => 5 BLQRD
+6 QGSV, 1 HGDHV, 1 JPFC => 1 NJTR
+1 HGDHV, 7 JHVL, 5 PZDPS => 9 MGRT
+1 KSQL => 5 QBJQ
+2 QLNK => 2 CKQLD
+13 JZXKW, 14 XTBRS => 3 PTGLG
+1 BNPXT, 2 PLGS => 7 DBCB
+1 RFBK, 9 CTFCD => 1 MHVJP
+1 NJTR, 1 TVHC, 2 PCXS => 1 KTJR
+2 WRWGP => 6 TBKM
+12 QLNK, 1 NJTR => 3 NCQTM
+13 ZHCKP, 2 DBCB, 5 PXVN => 9 QPCQ
+125 ORE => 3 WRWGP
+6 CBTKP, 9 TBKM => 9 SPBF
+1 GQXV => 6 ZHCKP
+1 MGRT => 8 BNPXT
+2 SPBF => 4 ZLKZ
+9 TVHC, 5 KXNDF, 3 QPCQ => 3 TVRDM
+1 PLGS, 7 TBKM => 8 LVDN
+"
+transitionStr.substr(0, transitionStr.length - 2);
+"3 LMPDB, 11 CBTKP => 7 PZDPS
+5 CBKW, 4 CXBH => 9 KXNDF
+1 LVDN, 4 HGDHV => 1 PCXS
+11 PCXS => 2 XTBRS
+5 RVSF => 7 TDCH
+1 CXBH, 6 PXVN => 8 GQXV
+3 DBCB, 3 QLNK => 4 CTFCD
+7 PZDPS, 18 HGDHV, 9 TBKM => 4 JHVL
+10 QGSV, 1 DBCB, 7 LTHFX => 3 BLRSQ
+12 CBTKP, 7 SPBF => 5 KSQL
+1 QXHDQ, 5 MQKH, 10 XRCB, 30 SQWHX, 2 PQZVD, 30 TFST, 39 JPFC, 1 FDGS, 17 LVDN => 1 FUEL
+2 TBKM => 8 PFHKT
+13 CBTKP => 5 QLNK
+12 TVRDM, 6 QGSV, 16 LMPDB => 4 PQZVD
+7 TDCH, 17 PXVN, 4 ZLKZ => 6 XRCB
+1 QBJQ, 26 CBKW => 4 RVSF
+24 KXNDF, 3 BLRSQ => 9 GSHKQ
+12 BLRSQ, 3 HGDHV => 9 RQNGQ
+2 RFBK, 2 WHWS => 8 CBKW
+1 WHWS => 7 LTHFX
+13 CKQLD, 10 ZLKZ, 2 GQXV => 8 TVHC
+1 DBCB => 2 JZXKW
+8 SPBF => 7 CXBH
+11 LTHFX, 1 PTGLG, 10 NCQTM => 6 SQWHX
+16 PFHKT => 3 HGDHV
+3 LVDN, 5 PZDPS, 1 SPBF => 9 CQBCL
+19 BLRSQ, 1 BLQRD, 5 GSHKQ, 2 LVDN, 3 LMPDB, 5 KTJR => 1 QXHDQ
+1 RFBK, 1 JPFC => 7 PXVN
+110 ORE => 3 MQKH
+1 FPBRB, 7 MQKH => 7 SDJBT
+128 ORE => 7 FPBRB
+3 WRWGP => 2 RFBK
+1 PFHKT, 4 SPBF => 7 JPFC
+14 LTHFX, 2 JZXKW, 2 BLRSQ, 2 MHVJP, 6 RQNGQ, 1 CQBCL, 8 TDCH, 2 NJTR => 2 FDGS
+4 SDJBT, 2 LMPDB => 8 PLGS
+1 RFBK, 1 TBKM => 6 CBTKP
+17 LVDN, 2 CBTKP => 4 QGSV
+7 WRWGP => 9 LMPDB
+3 CKQLD => 6 WHWS
+14 CBTKP, 9 XTBRS, 9 GSHKQ, 12 GQXV, 20 LTHFX, 1 RQNGQ, 1 KTJR, 3 BLRSQ => 7 TFST
+1 QPCQ => 5 BLQRD
+6 QGSV, 1 HGDHV, 1 JPFC => 1 NJTR
+1 HGDHV, 7 JHVL, 5 PZDPS => 9 MGRT
+1 KSQL => 5 QBJQ
+2 QLNK => 2 CKQLD
+13 JZXKW, 14 XTBRS => 3 PTGLG
+1 BNPXT, 2 PLGS => 7 DBCB
+1 RFBK, 9 CTFCD => 1 MHVJP
+1 NJTR, 1 TVHC, 2 PCXS => 1 KTJR
+2 WRWGP => 6 TBKM
+12 QLNK, 1 NJTR => 3 NCQTM
+13 ZHCKP, 2 DBCB, 5 PXVN => 9 QPCQ
+125 ORE => 3 WRWGP
+6 CBTKP, 9 TBKM => 9 SPBF
+1 GQXV => 6 ZHCKP
+1 MGRT => 8 BNPXT
+2 SPBF => 4 ZLKZ
+9 TVHC, 5 KXNDF, 3 QPCQ => 3 TVRDM
+1 PLGS, 7 TBKM => 8 LVD"
+transitionStr = transitionStr + 'N';
+"3 LMPDB, 11 CBTKP => 7 PZDPS
+5 CBKW, 4 CXBH => 9 KXNDF
+1 LVDN, 4 HGDHV => 1 PCXS
+11 PCXS => 2 XTBRS
+5 RVSF => 7 TDCH
+1 CXBH, 6 PXVN => 8 GQXV
+3 DBCB, 3 QLNK => 4 CTFCD
+7 PZDPS, 18 HGDHV, 9 TBKM => 4 JHVL
+10 QGSV, 1 DBCB, 7 LTHFX => 3 BLRSQ
+12 CBTKP, 7 SPBF => 5 KSQL
+1 QXHDQ, 5 MQKH, 10 XRCB, 30 SQWHX, 2 PQZVD, 30 TFST, 39 JPFC, 1 FDGS, 17 LVDN => 1 FUEL
+2 TBKM => 8 PFHKT
+13 CBTKP => 5 QLNK
+12 TVRDM, 6 QGSV, 16 LMPDB => 4 PQZVD
+7 TDCH, 17 PXVN, 4 ZLKZ => 6 XRCB
+1 QBJQ, 26 CBKW => 4 RVSF
+24 KXNDF, 3 BLRSQ => 9 GSHKQ
+12 BLRSQ, 3 HGDHV => 9 RQNGQ
+2 RFBK, 2 WHWS => 8 CBKW
+1 WHWS => 7 LTHFX
+13 CKQLD, 10 ZLKZ, 2 GQXV => 8 TVHC
+1 DBCB => 2 JZXKW
+8 SPBF => 7 CXBH
+11 LTHFX, 1 PTGLG, 10 NCQTM => 6 SQWHX
+16 PFHKT => 3 HGDHV
+3 LVDN, 5 PZDPS, 1 SPBF => 9 CQBCL
+19 BLRSQ, 1 BLQRD, 5 GSHKQ, 2 LVDN, 3 LMPDB, 5 KTJR => 1 QXHDQ
+1 RFBK, 1 JPFC => 7 PXVN
+110 ORE => 3 MQKH
+1 FPBRB, 7 MQKH => 7 SDJBT
+128 ORE => 7 FPBRB
+3 WRWGP => 2 RFBK
+1 PFHKT, 4 SPBF => 7 JPFC
+14 LTHFX, 2 JZXKW, 2 BLRSQ, 2 MHVJP, 6 RQNGQ, 1 CQBCL, 8 TDCH, 2 NJTR => 2 FDGS
+4 SDJBT, 2 LMPDB => 8 PLGS
+1 RFBK, 1 TBKM => 6 CBTKP
+17 LVDN, 2 CBTKP => 4 QGSV
+7 WRWGP => 9 LMPDB
+3 CKQLD => 6 WHWS
+14 CBTKP, 9 XTBRS, 9 GSHKQ, 12 GQXV, 20 LTHFX, 1 RQNGQ, 1 KTJR, 3 BLRSQ => 7 TFST
+1 QPCQ => 5 BLQRD
+6 QGSV, 1 HGDHV, 1 JPFC => 1 NJTR
+1 HGDHV, 7 JHVL, 5 PZDPS => 9 MGRT
+1 KSQL => 5 QBJQ
+2 QLNK => 2 CKQLD
+13 JZXKW, 14 XTBRS => 3 PTGLG
+1 BNPXT, 2 PLGS => 7 DBCB
+1 RFBK, 9 CTFCD => 1 MHVJP
+1 NJTR, 1 TVHC, 2 PCXS => 1 KTJR
+2 WRWGP => 6 TBKM
+12 QLNK, 1 NJTR => 3 NCQTM
+13 ZHCKP, 2 DBCB, 5 PXVN => 9 QPCQ
+125 ORE => 3 WRWGP
+6 CBTKP, 9 TBKM => 9 SPBF
+1 GQXV => 6 ZHCKP
+1 MGRT => 8 BNPXT
+2 SPBF => 4 ZLKZ
+9 TVHC, 5 KXNDF, 3 QPCQ => 3 TVRDM
+1 PLGS, 7 TBKM => 8 LVDN
+N"
+transitionStr = document.querySelector('pre').innerText;
+"3 LMPDB, 11 CBTKP => 7 PZDPS
+5 CBKW, 4 CXBH => 9 KXNDF
+1 LVDN, 4 HGDHV => 1 PCXS
+11 PCXS => 2 XTBRS
+5 RVSF => 7 TDCH
+1 CXBH, 6 PXVN => 8 GQXV
+3 DBCB, 3 QLNK => 4 CTFCD
+7 PZDPS, 18 HGDHV, 9 TBKM => 4 JHVL
+10 QGSV, 1 DBCB, 7 LTHFX => 3 BLRSQ
+12 CBTKP, 7 SPBF => 5 KSQL
+1 QXHDQ, 5 MQKH, 10 XRCB, 30 SQWHX, 2 PQZVD, 30 TFST, 39 JPFC, 1 FDGS, 17 LVDN => 1 FUEL
+2 TBKM => 8 PFHKT
+13 CBTKP => 5 QLNK
+12 TVRDM, 6 QGSV, 16 LMPDB => 4 PQZVD
+7 TDCH, 17 PXVN, 4 ZLKZ => 6 XRCB
+1 QBJQ, 26 CBKW => 4 RVSF
+24 KXNDF, 3 BLRSQ => 9 GSHKQ
+12 BLRSQ, 3 HGDHV => 9 RQNGQ
+2 RFBK, 2 WHWS => 8 CBKW
+1 WHWS => 7 LTHFX
+13 CKQLD, 10 ZLKZ, 2 GQXV => 8 TVHC
+1 DBCB => 2 JZXKW
+8 SPBF => 7 CXBH
+11 LTHFX, 1 PTGLG, 10 NCQTM => 6 SQWHX
+16 PFHKT => 3 HGDHV
+3 LVDN, 5 PZDPS, 1 SPBF => 9 CQBCL
+19 BLRSQ, 1 BLQRD, 5 GSHKQ, 2 LVDN, 3 LMPDB, 5 KTJR => 1 QXHDQ
+1 RFBK, 1 JPFC => 7 PXVN
+110 ORE => 3 MQKH
+1 FPBRB, 7 MQKH => 7 SDJBT
+128 ORE => 7 FPBRB
+3 WRWGP => 2 RFBK
+1 PFHKT, 4 SPBF => 7 JPFC
+14 LTHFX, 2 JZXKW, 2 BLRSQ, 2 MHVJP, 6 RQNGQ, 1 CQBCL, 8 TDCH, 2 NJTR => 2 FDGS
+4 SDJBT, 2 LMPDB => 8 PLGS
+1 RFBK, 1 TBKM => 6 CBTKP
+17 LVDN, 2 CBTKP => 4 QGSV
+7 WRWGP => 9 LMPDB
+3 CKQLD => 6 WHWS
+14 CBTKP, 9 XTBRS, 9 GSHKQ, 12 GQXV, 20 LTHFX, 1 RQNGQ, 1 KTJR, 3 BLRSQ => 7 TFST
+1 QPCQ => 5 BLQRD
+6 QGSV, 1 HGDHV, 1 JPFC => 1 NJTR
+1 HGDHV, 7 JHVL, 5 PZDPS => 9 MGRT
+1 KSQL => 5 QBJQ
+2 QLNK => 2 CKQLD
+13 JZXKW, 14 XTBRS => 3 PTGLG
+1 BNPXT, 2 PLGS => 7 DBCB
+1 RFBK, 9 CTFCD => 1 MHVJP
+1 NJTR, 1 TVHC, 2 PCXS => 1 KTJR
+2 WRWGP => 6 TBKM
+12 QLNK, 1 NJTR => 3 NCQTM
+13 ZHCKP, 2 DBCB, 5 PXVN => 9 QPCQ
+125 ORE => 3 WRWGP
+6 CBTKP, 9 TBKM => 9 SPBF
+1 GQXV => 6 ZHCKP
+1 MGRT => 8 BNPXT
+2 SPBF => 4 ZLKZ
+9 TVHC, 5 KXNDF, 3 QPCQ => 3 TVRDM
+1 PLGS, 7 TBKM => 8 LVDN
+"
+transitionStr = transitionStr.substr(0, transitionStr.length - 1);
+"3 LMPDB, 11 CBTKP => 7 PZDPS
+5 CBKW, 4 CXBH => 9 KXNDF
+1 LVDN, 4 HGDHV => 1 PCXS
+11 PCXS => 2 XTBRS
+5 RVSF => 7 TDCH
+1 CXBH, 6 PXVN => 8 GQXV
+3 DBCB, 3 QLNK => 4 CTFCD
+7 PZDPS, 18 HGDHV, 9 TBKM => 4 JHVL
+10 QGSV, 1 DBCB, 7 LTHFX => 3 BLRSQ
+12 CBTKP, 7 SPBF => 5 KSQL
+1 QXHDQ, 5 MQKH, 10 XRCB, 30 SQWHX, 2 PQZVD, 30 TFST, 39 JPFC, 1 FDGS, 17 LVDN => 1 FUEL
+2 TBKM => 8 PFHKT
+13 CBTKP => 5 QLNK
+12 TVRDM, 6 QGSV, 16 LMPDB => 4 PQZVD
+7 TDCH, 17 PXVN, 4 ZLKZ => 6 XRCB
+1 QBJQ, 26 CBKW => 4 RVSF
+24 KXNDF, 3 BLRSQ => 9 GSHKQ
+12 BLRSQ, 3 HGDHV => 9 RQNGQ
+2 RFBK, 2 WHWS => 8 CBKW
+1 WHWS => 7 LTHFX
+13 CKQLD, 10 ZLKZ, 2 GQXV => 8 TVHC
+1 DBCB => 2 JZXKW
+8 SPBF => 7 CXBH
+11 LTHFX, 1 PTGLG, 10 NCQTM => 6 SQWHX
+16 PFHKT => 3 HGDHV
+3 LVDN, 5 PZDPS, 1 SPBF => 9 CQBCL
+19 BLRSQ, 1 BLQRD, 5 GSHKQ, 2 LVDN, 3 LMPDB, 5 KTJR => 1 QXHDQ
+1 RFBK, 1 JPFC => 7 PXVN
+110 ORE => 3 MQKH
+1 FPBRB, 7 MQKH => 7 SDJBT
+128 ORE => 7 FPBRB
+3 WRWGP => 2 RFBK
+1 PFHKT, 4 SPBF => 7 JPFC
+14 LTHFX, 2 JZXKW, 2 BLRSQ, 2 MHVJP, 6 RQNGQ, 1 CQBCL, 8 TDCH, 2 NJTR => 2 FDGS
+4 SDJBT, 2 LMPDB => 8 PLGS
+1 RFBK, 1 TBKM => 6 CBTKP
+17 LVDN, 2 CBTKP => 4 QGSV
+7 WRWGP => 9 LMPDB
+3 CKQLD => 6 WHWS
+14 CBTKP, 9 XTBRS, 9 GSHKQ, 12 GQXV, 20 LTHFX, 1 RQNGQ, 1 KTJR, 3 BLRSQ => 7 TFST
+1 QPCQ => 5 BLQRD
+6 QGSV, 1 HGDHV, 1 JPFC => 1 NJTR
+1 HGDHV, 7 JHVL, 5 PZDPS => 9 MGRT
+1 KSQL => 5 QBJQ
+2 QLNK => 2 CKQLD
+13 JZXKW, 14 XTBRS => 3 PTGLG
+1 BNPXT, 2 PLGS => 7 DBCB
+1 RFBK, 9 CTFCD => 1 MHVJP
+1 NJTR, 1 TVHC, 2 PCXS => 1 KTJR
+2 WRWGP => 6 TBKM
+12 QLNK, 1 NJTR => 3 NCQTM
+13 ZHCKP, 2 DBCB, 5 PXVN => 9 QPCQ
+125 ORE => 3 WRWGP
+6 CBTKP, 9 TBKM => 9 SPBF
+1 GQXV => 6 ZHCKP
+1 MGRT => 8 BNPXT
+2 SPBF => 4 ZLKZ
+9 TVHC, 5 KXNDF, 3 QPCQ => 3 TVRDM
+1 PLGS, 7 TBKM => 8 LVDN"
+transitions = buildTransitions(transitionStr);
+Map(59) {"PZDPS" => {…}, "KXNDF" => {…}, "PCXS" => {…}, "XTBRS" => {…}, "TDCH" => {…}, …}
+countNeededOre(transitions);
+97422
